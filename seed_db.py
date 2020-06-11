@@ -6,7 +6,7 @@ import crud
 
 from model import User, Trip, Location, Image
 from model import connect_to_db, db
-from api import app
+from server import app
 
 os.system('dropdb pasos')
 os.system('createdb pasos')

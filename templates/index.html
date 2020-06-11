@@ -1,0 +1,15 @@
+{% block title %}Pasos{% endblock %}
+
+{% block body %}
+  <h1>All Trips</h1>
+
+  <ul>
+    {% for trip in trips %}
+      <li>
+        <a href="/trips/{{ trip.trip_id }}">
+          {{ trip.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
