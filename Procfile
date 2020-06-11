@@ -1,1 +1,1 @@
-web gunicorn server:FLASK_APP
+web gunicorn server:app
