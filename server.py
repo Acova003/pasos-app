@@ -18,7 +18,11 @@ app.secret_key = os.getenv('SECRET_KEY')
 blueprint = make_google_blueprint(
     client_id=os.getenv('CLIENT_ID'),
     client_secret=os.getenv('CLIENT_SECRET'),
-    scope=["profile", "email"]
+    scope=[
+        "openid",
+        "https://www.googleapis.com/auth/userinfo.email",
+        "https://www.googleapis.com/auth/userinfo.profile",
+    ],
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
