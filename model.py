@@ -12,9 +12,8 @@ class User(db.Model):
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     username = db.Column(db.String, nullable=False, unique=True)
-    display_name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
-    password = db.Column(db.String)
+    password = db.Column(db.String, nullable=False)
     step_count = db.Column(db.Integer)
 
     def __repr__(self):

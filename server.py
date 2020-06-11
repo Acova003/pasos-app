@@ -4,7 +4,8 @@ from flask import (Flask, request, flash, session, redirect, render_template, ur
 from model import Trip, db, connect_to_db
 from flask_dance.contrib.google import make_google_blueprint, google
 from werkzeug.contrib.fixers import ProxyFix
-# from flask_oauth import OAuth
+import dotenv
+import os
 import crud
 
 from dotenv import load_dotenv
@@ -13,10 +14,10 @@ load_dotenv()
 app = Flask(__name__)
 connect_to_db(app)
 app.wsgi_app = ProxyFix(app.wsgi_app)
-app.secret_key = SECRET_KEY
+app.secret_key = os.getenv('SECRET_KEY')
 blueprint = make_google_blueprint(
-    client_id=CLIENT_ID,
-    client_secret=CLIENT_SECRET,
+    client_id=os.getenv('CLIENT_ID'),
+    client_secret=os.getenv('CLIENT_SECRET'),
     scope=["profile", "email"]
 )
 app.register_blueprint(blueprint, url_prefix="/login")
