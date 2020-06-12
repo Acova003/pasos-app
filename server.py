@@ -7,15 +7,15 @@ from werkzeug.contrib.fixers import ProxyFix
 import os
 import crud
 
-# from dotenv import load_dotenv
-# load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 connect_to_db(app)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.secret_key = os.environ.get('SECRET_KEY')
 blueprint = make_google_blueprint(
-    client_id=oos.environ.get('CLIENT_ID'),
+    client_id=os.environ.get('CLIENT_ID'),
     client_secret=os.environ.get('CLIENT_SECRET'),
     scope=[
         "openid",
