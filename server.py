@@ -7,8 +7,8 @@ from werkzeug.contrib.fixers import ProxyFix
 import os
 import crud
 
-from dotenv import load_dotenv
-load_dotenv()
+# from dotenv import load_dotenv
+# load_dotenv()
 
 app = Flask(__name__)
 connect_to_db(app)
