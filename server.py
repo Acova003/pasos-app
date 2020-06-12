@@ -13,10 +13,10 @@ load_dotenv()
 app = Flask(__name__)
 connect_to_db(app)
 app.wsgi_app = ProxyFix(app.wsgi_app)
-app.secret_key = os.getenv('SECRET_KEY')
+app.secret_key = os.environ.get('SECRET_KEY')
 blueprint = make_google_blueprint(
-    client_id=os.getenv('CLIENT_ID'),
-    client_secret=os.getenv('CLIENT_SECRET'),
+    client_id=oos.environ.get('CLIENT_ID'),
+    client_secret=os.environ.get('CLIENT_SECRET'),
     scope=[
         "openid",
         "https://www.googleapis.com/auth/userinfo.email",
