@@ -3,9 +3,16 @@
 from flask import (Flask, request, flash, session, redirect, render_template, url_for)
 from model import Trip, db, connect_to_db
 from flask_dance.contrib.google import make_google_blueprint, google
+from oauthlib.oauth2.rfc6749.errors import TokenExpiredError
 from werkzeug.contrib.fixers import ProxyFix
+
+from google.oauth2.credentials import Credentials
+from google.auth.transport.urllib3 import AuthorizedHttp
+
 import os
 import crud
+import google_auth_httplib2
+import httplib2
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -29,15 +36,20 @@ app.register_blueprint(blueprint, url_prefix="/login")
 def index():
     if not google.authorized:
         return redirect(url_for("google.login"))
-    resp = google.get("/plus/v1/people/me")
-    assert resp.ok, resp.text
-    return "You are {email} on Google".format(email=resp.json()["emails"][0]["value"])
 
-# @app.route("/")
-# def index():
-#     trips = [Trip(title='123')]
-#     # trips = crud.get_trips()
-#     return render_template('index.html', trips=trips)
+    creds = Credentials(google.token['access_token'])
+    print(google.token)
+    http = AuthorizedHttp(creds)
+
+    try:
+        response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=names')
+    except:
+        return redirect(url_for('google.login'))
+
+    print(response.data)
+    print(response.status)
+    return response.data
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
