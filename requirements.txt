@@ -82,7 +82,7 @@ python-debian==0.1.32
 python-dotenv==0.13.0
 python-twitter==3.5
 pytz==2020.1
-pyxdg==0.25
+pyxdg==0.26
 PyYAML==3.12
 pyzmq==19.0.1
 requests==2.23.0
