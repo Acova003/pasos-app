@@ -11,13 +11,12 @@ class User(db.Model):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    username = db.Column(db.String, nullable=False, unique=True)
+    given_name = db.Column(db.String, nullable=False, unique=True)
     email = db.Column(db.String, nullable=False, unique=True)
-    password = db.Column(db.String, nullable=False)
     step_count = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<User user_id={self.user_id} username={self.username} step_count={self.step_count}>'
+        return f'<User user_id={self.user_id} given_name={self.given_name} email={self.email} step_count={self.step_count}>'
 
 
 class Trip(db.Model):
@@ -28,6 +27,8 @@ class Trip(db.Model):
     trip_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     title = db.Column(db.String, nullable=False)
+
+    user = db.relationship('User', backref='trips')
 
     def __repr__(self):
         return f'<Trip trip_id={self.trip_id} user_id={self.user_id} title={self.title}>'
