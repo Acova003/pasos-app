@@ -11,7 +11,7 @@ from server import app
 os.system('dropdb pasos')
 os.system('createdb pasos')
 
-model.connect_to_db(api.app)
+model.connect_to_db(server.app)
 model.db.create_all()
 
 def seed_users():
@@ -21,44 +21,64 @@ def seed_users():
 
     # to create locations
     for user in user_data:
-        title, overview, poster_path = (movie['title'],
-                                        movie['overview'],
-                                        movie['poster_path'])
-        release_date = datetime.strptime(movie['release_date'], '%Y-%m-%d')
+        given_name, email, step_count = (user['given_name'],
+                                        user['email'],
+                                        user['step_count'])
 
-        db_movie = crud.create_movie(title,
-                                     overview,
-                                     release_date,
-                                     poster_path)
-        movies_in_db.append(db_movie)
+        crud.create_user(given_name, email, step_count)
+
+def seed_trips():
+# Load location data from JSON file
+    seed_users()
+
+    with open('data/trips.json') as f:
+        trip_data = json.loads(f.read())
+
+    # to create locations
+    for trip in trip_data:
+        user_id, title = (trip['user_id'], trip['title'])
+
+        user = crud.get_user_by_id(user_id)
+        crud.create_trip(user, title)
 
 def seed_locations():
 # Load location data from JSON file
+    seed_trips()
+
     with open('data/locations.json') as f:
         location_data = json.loads(f.read())
 
     # to create locations
     for location in location_data:
-        title, overview, poster_path = (movie['title'],
-                                        movie['overview'],
-                                        movie['poster_path'])
-        release_date = datetime.strptime(movie['release_date'], '%Y-%m-%d')
+        trip_id = location['trip_id']
+        title = location['title']
+        step_count = location['step_count']
+        longitude = location['longitude']
+        latitude = location['latitude']
+        city_name = location['city_name']
+        body = location['body']
+        user_id = location['user_id']
 
-        db_movie = crud.create_movie(title,
-                                     overview,
-                                     release_date,
-                                     poster_path)
-        movies_in_db.append(db_movie)
+        trip = crud.get_trip_by_id(trip_id)
+        crud.create_location(trip, title, step_count, longitude, latitude,
+                            city_name, body, user_id)
 
-# Create 10 users; each user will make 10 ratings
-for n in range(10):
-    email = f'user{n}@test.com'  # Voila! A unique email!
-    password = 'test'
+def seed_images():
+    # Load image data from JSON file
+    seed_locations()
 
-    user = crud.create_user(email, password)
+    with open('data/images.json') as f:
+        image_data = json.loads(f.read())
 
-    for _ in range(10):
-        random_movie = choice(movies_in_db)
-        score = randint(1, 5)
+    # to create locations
+    for image in image_data:
+        pin_id = image['pin_id']
+        trip_id = image['trip_id']
+        user_id = image['user_id']
+        name = image['name']
+        path = image['path']
 
-        crud.create_rating(user, random_movie, score)
+        location = crud.get_location_by_id(pin_id)
+        crud.create_image(location, title, trip_id, user_id, name, path)
+
+    print('Success!')
