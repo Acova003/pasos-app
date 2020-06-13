@@ -5,7 +5,7 @@ from model import Trip, db, connect_to_db
 from flask_dance.contrib.google import make_google_blueprint, google
 from oauthlib.oauth2.rfc6749.errors import TokenExpiredError
 from werkzeug.contrib.fixers import ProxyFix
-
+from jinja2 import StrictUndefined
 from google.oauth2.credentials import Credentials
 from google.auth.transport.urllib3 import AuthorizedHttp
 
@@ -19,6 +19,7 @@ load_dotenv()
 
 app = Flask(__name__)
 connect_to_db(app)
+app.jinja_env.undefined = StrictUndefined
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.secret_key = os.environ.get('SECRET_KEY')
 blueprint = make_google_blueprint(

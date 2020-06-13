@@ -1,7 +1,27 @@
 [
 {
     "email": "amee@gmail.com",
-    "given_name": "amee",
-    "step_count": 20000
+    "given_name": "Amee",
+    "step_count": 28746
 },
+{
+    "email": "michelle@gmail.com",
+    "given_name": "Michelle",
+    "step_count": 38176
+},
+{
+    "email": "vixen@gmail.com",
+    "given_name": "Vixen",
+    "step_count": 283748
+},
+{
+    "email": "hannah@gmail.com",
+    "given_name": "Hannah",
+    "step_count": 238487
+},
+{
+    "email": "juliana@gmail.com",
+    "given_name": "Juliana",
+    "step_count": 5948769
+}
 ]

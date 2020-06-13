@@ -1,15 +1,14 @@
-{% block title %}Pasos{% endblock %}
+{% extends 'base.html' %}
+{% block title %}Pasos Home{% endblock %}
 
 {% block body %}
-  <h1>All Trips</h1>
+  <h1>Buen Camino!</h1>
 
+  <h2>Navigation</h2>
   <ul>
-    {% for trip in trips %}
-      <li>
-        <a href="/trips/{{ trip.trip_id }}">
-          {{ trip.title }}
-        </a>
-      </li>
-    {% endfor %}
+    <li><a href="/login">Login</a></li>
+    <li><a href="/new_user">Create Account</a></li>
   </ul>
+
+  <!-- site graphics here -->
 {% endblock %}
