@@ -41,9 +41,9 @@ class Location(db.Model):
 
     pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
-    title = db.Column(db.String)
-    longitude = db.Column(db.Float)
-    latitude = db.Column(db.Float)
+    title = db.Column(db.String, nullable=False)
+    longitude = db.Column(db.Float, nullable=False)
+    latitude = db.Column(db.Float, nullable=False)
     city_name = db.Column(db.String)
     body = db.Column(db.Text)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
@@ -84,6 +84,7 @@ def connect_to_db(flask_app, db_uri='postgresql:///pasos', echo=True):
     db.init_app(flask_app)
 
     print('Connected to the db!')
+    print('ModelPy')
 
 
 

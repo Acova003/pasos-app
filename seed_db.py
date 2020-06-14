@@ -3,6 +3,8 @@
 import os
 import json
 import crud
+import model
+import server
 
 from model import User, Trip, Location, Image
 from model import connect_to_db, db
@@ -20,6 +22,7 @@ def seed_users():
         user_data = json.loads(f.read())
 
     # to create locations
+    print(user_data)
     for user in user_data:
         given_name, email, step_count = (user['given_name'],
                                         user['email'],
@@ -29,7 +32,7 @@ def seed_users():
 
 def seed_trips():
 # Load location data from JSON file
-    seed_users()
+    # seed_users()
 
     with open('data/trips.json') as f:
         trip_data = json.loads(f.read())
@@ -39,11 +42,12 @@ def seed_trips():
         user_id, title = (trip['user_id'], trip['title'])
 
         user = crud.get_user_by_id(user_id)
+        print(user)
         crud.create_trip(user, title)
 
 def seed_locations():
 # Load location data from JSON file
-    seed_trips()
+    # seed_trips()
 
     with open('data/locations.json') as f:
         location_data = json.loads(f.read())

@@ -13,6 +13,7 @@ import os
 import crud
 import google_auth_httplib2
 import httplib2
+import json
 
 from dotenv import load_dotenv
 load_dotenv()
@@ -43,13 +44,21 @@ def index():
     http = AuthorizedHttp(creds)
 
     try:
-        response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=names')
+        response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=emailAddresses')
+
     except:
         return redirect(url_for('google.login'))
 
     print(response.data)
-    print(response.status)
-    return response.data
+    response_json = json.loads(response.data)
+    email_address = response_json["emailAddresses"][0]['value']
+    user_matched = crud.get_user_by_email(email_address)
+    value = user_matched.step_count
+    # if user_matched isn't in db, call people api, get given name. Use given_name, email_address and step count
+    # to initialize new user at 0 steps
+    if user_matched is None:
+        value = "Buen Camino, peregrino! Welcome to Pasos"
+    return render_template("trip.html", value=value)
 
 
 if __name__ == '__main__':

@@ -3,14 +3,14 @@
 
 from model import db, User, Trip, Location, Image, connect_to_db
 
-def create_user(given_name, email):
+def create_user(given_name, email, step_count):
     """Create and return a new user."""
 
-    user = User(given_name=username, email=email)
-    
+    user = User(given_name=given_name, email=email, step_count=step_count)
+
     db.session.add(user)
     db.session.commit()
-
+    print(user)
     return user
 
 def get_users():
