@@ -44,7 +44,7 @@ def index():
     http = AuthorizedHttp(creds)
 
     try:
-        response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=emailAddresses')
+        response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses')
 
     except:
         return redirect(url_for('google.login'))
@@ -52,13 +52,15 @@ def index():
     print(response.data)
     response_json = json.loads(response.data)
     email_address = response_json["emailAddresses"][0]['value']
+    given_name = response_json["names"][0]['givenName']
     user_matched = crud.get_user_by_email(email_address)
-    value = user_matched.step_count
+    step_count = user_matched.step_count
     # if user_matched isn't in db, call people api, get given name. Use given_name, email_address and step count
     # to initialize new user at 0 steps
     if user_matched is None:
-        value = "Buen Camino, peregrino! Welcome to Pasos"
-    return render_template("trip.html", value=value)
+        create_user(given_name, email_address, step_count=0)
+        # value = "Buen Camino, peregrino! Welcome to Pasos"
+    return render_template("trip.html", given_name=given_name, step_count=step_count)
 
 
 if __name__ == '__main__':
