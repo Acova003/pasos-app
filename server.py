@@ -62,6 +62,8 @@ def index():
         # value = "Buen Camino, peregrino! Welcome to Pasos"
     return render_template("trip.html", given_name=given_name, step_count=step_count)
 
-
+# profile page route
+#2,435 steps per mile
+#1,550 steps per km
 if __name__ == '__main__':
     app.run(host='0.0.0.0', debug=True)
