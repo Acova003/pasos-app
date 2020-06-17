@@ -74,7 +74,9 @@ def index():
         steps = crud.update_num_steps(steps, new_steps)
 
     num_steps = crud.count_steps_for_user(user_matched)
-    return render_template("trip.html", given_name=given_name, step_count=num_steps, today_steps=new_steps)
+    kms_traveled = int(num_steps * 0.008)
+    distance_to_santiago = 780 - kms_traveled
+    return render_template("trip.html", given_name=given_name, step_count=num_steps, today_steps=new_steps, kms_traveled=kms_traveled, distance_to_santiago=distance_to_santiago)
 
 
 # profile page route

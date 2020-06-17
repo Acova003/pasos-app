@@ -1,5 +1,10 @@
 [
 {
-    "title": "test trip'",
-    "user_id": "1"
+    "user_id": 1,
+    "date": "1"
 }]
+
+step_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+  user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+  date = db.Column(db.Date)
+  num_steps = db.Column(db.Integer, nullable=False)
