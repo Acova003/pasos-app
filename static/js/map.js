@@ -64,3 +64,5 @@ user_location.features.forEach(function(marker) {
     .setLngLat(marker.geometry.coordinates)
     .addTo(map);
 });
+
+map.addControl(new mapboxgl.NavigationControl());

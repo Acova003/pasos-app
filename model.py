@@ -11,68 +11,49 @@ class User(db.Model):
     __tablename__ = 'users'
 
     user_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    given_name = db.Column(db.String, nullable=False, unique=True)
+    given_name = db.Column(db.String, nullable=False)
     email = db.Column(db.String, nullable=False, unique=True)
-    step_count = db.Column(db.Integer)
+    # step_count = db.Column(db.Integer)
 
     def __repr__(self):
-        return f'<User user_id={self.user_id} given_name={self.given_name} email={self.email} step_count={self.step_count}>'
+        return f'<User user_id={self.user_id} given_name={self.given_name} email={self.email}>'
 
+class Step(db.Model):
+    "A steps"
 
-class Trip(db.Model):
-    """A trip."""
+    __tablename__ = 'steps'
 
-    __tablename__ = 'trips'
-
-    trip_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    step_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    title = db.Column(db.String, nullable=False)
+    date = db.Column(db.Date)
+    num_steps = db.Column(db.Integer, nullable=False)
 
-    user = db.relationship('User', backref='trips')
-
-    def __repr__(self):
-        return f'<Trip trip_id={self.trip_id} user_id={self.user_id} title={self.title}>'
-
-
-class Location(db.Model):
-    """A pin location."""
-
-    __tablename__ = 'locations'
-
-    pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
-    title = db.Column(db.String, nullable=False)
-    longitude = db.Column(db.Float, nullable=False)
-    latitude = db.Column(db.Float, nullable=False)
-    city_name = db.Column(db.String)
-    body = db.Column(db.Text)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-
-
-    trip = db.relationship('Trip', backref='locations')
-    user = db.relationship('User', backref='locations')
+    user = db.relationship('User', backref='steps')
 
     def __repr__(self):
-        return f'<Location pin_id={self.pin_id} title={self.title}>'
+        return f'<Step step_id={self.step_id} user_id={self.user_id} date={self.date} num_steps={self.num_steps}>'
 
-class Image(db.Model):
-    """A pin location."""
+# class Location(db.Model):
+#     """A pin location."""
+#
+#     __tablename__ = 'locations'
+#
+#     pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+#     trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
+#     title = db.Column(db.String, nullable=False)
+#     longitude = db.Column(db.Float, nullable=False)
+#     latitude = db.Column(db.Float, nullable=False)
+#     city_name = db.Column(db.String)
+#     body = db.Column(db.Text)
+#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+#
+#
+#     trip = db.relationship('Trip', backref='locations')
+#     user = db.relationship('User', backref='locations')
+#
+#     def __repr__(self):
+#         return f'<Location pin_id={self.pin_id} title={self.title}>'
 
-    __tablename__ = 'images'
-
-    image_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    pin_id = db.Column(db.Integer, db.ForeignKey('locations.pin_id'))
-    trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
-    user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-    name = db.Column(db.String, nullable=False)
-    path = db.Column(db.String, nullable=False)
-
-    location = db.relationship('Location', backref='images')
-    trip = db.relationship('Trip', backref='images')
-    user = db.relationship('User', backref='images')
-
-    def __repr__(self):
-        return f'<Image image_id={self.image_id} name={self.name}>'
 
 
 def connect_to_db(flask_app, db_uri='postgresql:///pasos', echo=True):

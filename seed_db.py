@@ -24,65 +24,47 @@ def seed_users():
     # to create locations
     print(user_data)
     for user in user_data:
-        given_name, email, step_count = (user['given_name'],
-                                        user['email'],
-                                        user['step_count'])
+        given_name, email = (user['given_name'],
+                                        user['email'])
 
-        crud.create_user(given_name, email, step_count)
+        crud.create_user(given_name, email)
 
-def seed_trips():
+def seed_steps():
 # Load location data from JSON file
-    # seed_users()
 
-    with open('data/trips.json') as f:
-        trip_data = json.loads(f.read())
+    with open('data/steps.json') as f:
+        step_data = json.loads(f.read())
 
     # to create locations
-    for trip in trip_data:
-        user_id, title = (trip['user_id'], trip['title'])
+    for step in step_data:
+        user_id, date, num_steps = (step['user_id'], step['date'], step['num_steps'])
 
         user = crud.get_user_by_id(user_id)
         print(user)
-        crud.create_trip(user, title)
+        crud.create_trip(user, date, num_steps)
 
-def seed_locations():
-# Load location data from JSON file
-    # seed_trips()
 
-    with open('data/locations.json') as f:
-        location_data = json.loads(f.read())
+# def seed_locations():
+# # Load location data from JSON file
+#
+#     with open('data/locations.json') as f:
+#         location_data = json.loads(f.read())
+#
+#     # to create locations
+#     for location in location_data:
+#         trip_id = location['trip_id']
+#         title = location['title']
+#         step_count = location['step_count']
+#         longitude = location['longitude']
+#         latitude = location['latitude']
+#         city_name = location['city_name']
+#         body = location['body']
+#         user_id = location['user_id']
+#
+#         trip = crud.get_trip_by_id(trip_id)
+#         crud.create_location(trip, title, step_count, longitude, latitude,
+#                             city_name, body, user_id)
+#
 
-    # to create locations
-    for location in location_data:
-        trip_id = location['trip_id']
-        title = location['title']
-        step_count = location['step_count']
-        longitude = location['longitude']
-        latitude = location['latitude']
-        city_name = location['city_name']
-        body = location['body']
-        user_id = location['user_id']
-
-        trip = crud.get_trip_by_id(trip_id)
-        crud.create_location(trip, title, step_count, longitude, latitude,
-                            city_name, body, user_id)
-
-def seed_images():
-    # Load image data from JSON file
-    seed_locations()
-
-    with open('data/images.json') as f:
-        image_data = json.loads(f.read())
-
-    # to create locations
-    for image in image_data:
-        pin_id = image['pin_id']
-        trip_id = image['trip_id']
-        user_id = image['user_id']
-        name = image['name']
-        path = image['path']
-
-        location = crud.get_location_by_id(pin_id)
-        crud.create_image(location, title, trip_id, user_id, name, path)
 
     print('Success!')

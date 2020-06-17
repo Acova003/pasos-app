@@ -1,12 +1,12 @@
 """CRUD operations."""
 # from model import db, User, connect_to_db
 
-from model import db, User, Trip, Location, Image, connect_to_db
+from model import db, User, Step, connect_to_db
 
-def create_user(given_name, email, step_count):
+def create_user(given_name, email):
     """Create and return a new user."""
 
-    user = User(given_name=given_name, email=email, step_count=step_count)
+    user = User(given_name=given_name, email=email)
 
     db.session.add(user)
     db.session.commit()
@@ -28,15 +28,40 @@ def get_user_by_email(email):
 
     return User.query.filter(User.email == email).first()
 
-def create_trip(user, title):
-    """Create and return a new trip."""
+def create_step(user, title):
+    """Create and return a new step."""
 
-    trip = Trip(user= user, title=title)
+    step = Step(user=user, date=date, num_steps=num_steps)
 
-    db.session.add(trip)
+    db.session.add(step)
     db.session.commit()
 
-    return trip
+    return step
+def find_steps_for_user(user, date):
+
+    return Step.query.filter(Step.user == user, Step.date == date).first()
+
+def count_steps_for_user(user):
+    # 1. find all steps for this user
+    # 2. add up in python
+    #
+    # 1. make query to ask DB to sum steps for user
+    # Step.query.all()
+
+    q = db.session.query(db.func.sum(Step.num_steps).label("total_steps")).filter(Step.user == user)
+    return q.all()[0][0]
+
+def create_steps_for_user(user, date, num_steps):
+    step = Step(user=user, date=date, num_steps=num_steps)
+
+    db.session.add(step)
+    db.session.commit()
+
+    return step
+def update_num_steps(steps, new_num):
+    steps.num_steps = new_num
+    db.session.commit()
+    return steps
 
 def get_trips():
 
@@ -85,6 +110,8 @@ def get_image_by_id(image_id):
     """Return a location by primary key."""
 
     return Image.query.get(image_id)
+
+# def calculate_location()
 
 if __name__ == '__main__':
     from server import app
