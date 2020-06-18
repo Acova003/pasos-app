@@ -1,167 +1,47 @@
-[{
-  0: {
-    city: "Saint Jean Pied de Port",
-    lat: 43.163664909079671,
-    lon: -1.23501836322248
+{
+  "0": {
+    "city_name": "Saint Jean Pied de Port",
+    "lat": 43.163664909079671,
+    "lon": -1.23501836322248
   },
-  25: {
-    city: "Roncesvalles",
-    lat: 43.008530,
-    lon: -1.319468
+  "25": {
+    "city_name": "Roncesvalles",
+    "lat": 43.008530,
+    "lon": -1.319468
   },
-  22: {
-    city: "Zubiri",
-    lat: 42.991053,
-    lon: -1.337952
+  "47": {
+    "city_name": "Zubiri",
+    "lat": 42.991053,
+    "lon": -1.337952
   },
-  22: {
-    city: "Pamplona",
-    lat: 42.991053,
-    lon: -1.337952
+  "69": {
+    "city_name": "Pamplona",
+    "lat": 42.991053,
+    "lon": -1.337952
   },
-  24: {
-    city: "Puenta La Reina",
-    lat: 42.991053,
-    lon: -1.337952
+  "93": {
+    "city_name": "Puenta La Reina",
+    "lat": 42.991053,
+    "lon": -1.337952
   },
-  21.5: {
-    city: "Estella",
-    lat: ,
-    lon:
+  "114.5": {
+    "city_name": "Estella",
+    "lat": 43.008530,
+    "lon": -1.319468
   },
-  22: {
-    city: "Los Arcos",
-    lat: ,
-    lon:
+  "136.5": {
+    "city_name": "Los Arcos",
+    "lat": 42.991053,
+    "lon": -1.337952
   },
-  28: {
-    city: "Logroño",
-    lat: ,
-    lon:
+  "164.5": {
+    "city_name": "Logroño",
+    "lat": 42.991053,
+    "lon": -1.337952
   },
-  12: {
-    city: "Navarrete",
-    lat: ,
-    lon:
-  },
-  23: {
-    city: "Azafra",
-    lat: ,
-    lon:
-  },
-  28: {
-    city: "Villafranca Montes de Oca",
-    lat: ,
-    lon:
-  },
-  24.5: {
-    city: "Cardeñuela Riopico",
-    lat: ,
-    lon:
-  },
-  27.5: {
-    city: "Tardajos",
-    lat: ,
-    lon:
-  },
-  30: {
-    city: "Castrojeriz",
-    lat: ,
-    lon:
-  },
-  25: {
-    city: "Frómista",
-    lat: ,
-    lon:
-  },
-  20: {
-    city: "Carrión",
-    lat: ,
-    lon:
-  },
-  26: {
-    city: "Terradillos de los Templarios",
-    lat: ,
-    lon:
-  },
-  24: {
-    city: "Bercianos de Real Camino",
-    lat: ,
-    lon:
-  },
-  27: {
-    city: "Mansilla de las Mulas",
-    lat: ,
-    lon:
-  },
-  19: {
-    city: "León",
-    lat: ,
-    lon:
-  },
-  21: {
-    city: "Villar de Mazarife",
-    lat: ,
-    lon:
-  },
-  31: {
-    city: "Astorga",
-    lat: ,
-    lon:
-  },
-  26: {
-    city: "Foncebadón",
-    lat: ,
-    lon:
-  },
-  27: {
-    city: "Ponferrada",
-    lat: ,
-    lon:
-  },
-  24: {
-    city: "Villafranca de Bierzo",
-    lat: ,
-    lon:
-  },
-  28: {
-    city: "Cebreiro",
-    lat: ,
-    lon:
-  },
-  20: {
-    city: "Triacastela",
-    lat: ,
-    lon:
-  },
-  25.5: {
-    city: "Sarria",
-    lat: ,
-    lon:
-  },
-  22: {
-    city: "Portomarin",
-    lat: ,
-    lon:
-  },
-  25: {
-    city: "Palas de Rei",
-    lat: ,
-    lon:
-  },
-  29: {
-    city: "Arzua",
-    lat: ,
-    lon:
-  },
-  20: {
-    city: "O Pedrouzo",
-    lat: ,
-    lon:
-  },
-  20: {
-    city: "Santiago de Compostela",
-    lat: ,
-    lon:
-  },
-}]
+  "176.5": {
+    "city_name": "Navarrete",
+    "lat": 42.991053,
+    "lon": -1.337952
+  }
+}

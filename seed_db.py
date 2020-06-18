@@ -6,7 +6,7 @@ import crud
 import model
 import server
 
-from model import User, Trip, Location, Image
+from model import User, Step, Location
 from model import connect_to_db, db
 from server import app
 
@@ -44,27 +44,19 @@ def seed_steps():
         crud.create_trip(user, date, num_steps)
 
 
-# def seed_locations():
-# # Load location data from JSON file
-#
-#     with open('data/locations.json') as f:
-#         location_data = json.loads(f.read())
-#
-#     # to create locations
-#     for location in location_data:
-#         trip_id = location['trip_id']
-#         title = location['title']
-#         step_count = location['step_count']
-#         longitude = location['longitude']
-#         latitude = location['latitude']
-#         city_name = location['city_name']
-#         body = location['body']
-#         user_id = location['user_id']
-#
-#         trip = crud.get_trip_by_id(trip_id)
-#         crud.create_location(trip, title, step_count, longitude, latitude,
-#                             city_name, body, user_id)
-#
+def seed_locations():
+# Load location data from JSON file
+
+    with open('data/locations.json') as f:
+        location_data = json.loads(f.read())
+
+    # to create locations
+    for distance,location in location_data.items():
+        longitude = location['lon']
+        latitude = location['lat']
+
+        crud.create_location(longitude, latitude, float(distance))
+
 
 
     print('Success!')

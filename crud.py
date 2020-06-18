@@ -1,7 +1,7 @@
 """CRUD operations."""
 # from model import db, User, connect_to_db
 
-from model import db, User, Step, connect_to_db
+from model import db, User, Step, Location,  connect_to_db
 
 def create_user(given_name, email):
     """Create and return a new user."""
@@ -42,10 +42,7 @@ def find_steps_for_user(user, date):
     return Step.query.filter(Step.user == user, Step.date == date).first()
 
 def count_steps_for_user(user):
-    # 1. find all steps for this user
-    # 2. add up in python
-    #
-    # 1. make query to ask DB to sum steps for user
+    #make query to ask DB to sum steps for user
     # Step.query.all()
 
     q = db.session.query(db.func.sum(Step.num_steps).label("total_steps")).filter(Step.user == user)
@@ -63,20 +60,12 @@ def update_num_steps(steps, new_num):
     db.session.commit()
     return steps
 
-def get_trips():
 
-    return Trip.query.all()
-
-def get_trip_by_id(trip_id):
-    """Return a trip by primary key."""
-
-    return Trip.query.get(trip_id)
-
-def create_location(trip, title, longitude, latitude, city_name, body):
+def create_location(city_name, longitude, latitude, distance_in):
     """Create and return a new location."""
 
-    location = Location(trip=trip, title=title, longitude=longitude,
-    latitude=latitude, city_name=city_name, body=body)
+    location = Location(city_name=city_name, longitude=longitude,
+    latitude=latitude, distance_in=distance_in)
 
     db.session.add(location)
     db.session.commit()
@@ -91,25 +80,6 @@ def get_location_by_id(pin_id):
     """Return a location by primary key."""
 
     return Trip.query.get(trip_id)
-
-def create_image(location, name, path):
-    """Create and return a new image."""
-
-    image = Image(location=location, name=name, path=path)
-
-    db.session.add(image)
-    db.session.commit()
-
-    return image
-
-def get_images():
-
-    return Image.query.all()
-
-def get_image_by_id(image_id):
-    """Return a location by primary key."""
-
-    return Image.query.get(image_id)
 
 # def calculate_location()
 

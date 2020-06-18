@@ -21,7 +21,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-connect_to_db(app)
 app.jinja_env.undefined = StrictUndefined
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.secret_key = os.environ.get('SECRET_KEY')
@@ -83,4 +82,5 @@ def index():
 #2,435 steps per mile
 #1,550 steps per km
 if __name__ == '__main__':
+    connect_to_db(app)
     app.run(host='0.0.0.0', debug=True)

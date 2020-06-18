@@ -33,26 +33,23 @@ class Step(db.Model):
     def __repr__(self):
         return f'<Step step_id={self.step_id} user_id={self.user_id} date={self.date} num_steps={self.num_steps}>'
 
-# class Location(db.Model):
-#     """A pin location."""
-#
-#     __tablename__ = 'locations'
-#
-#     pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-#     trip_id = db.Column(db.Integer, db.ForeignKey('trips.trip_id'))
-#     title = db.Column(db.String, nullable=False)
-#     longitude = db.Column(db.Float, nullable=False)
-#     latitude = db.Column(db.Float, nullable=False)
-#     city_name = db.Column(db.String)
-#     body = db.Column(db.Text)
-#     user_id = db.Column(db.Integer, db.ForeignKey('users.user_id'))
-#
-#
-#     trip = db.relationship('Trip', backref='locations')
-#     user = db.relationship('User', backref='locations')
-#
-#     def __repr__(self):
-#         return f'<Location pin_id={self.pin_id} title={self.title}>'
+class Location(db.Model):
+    """A pin location."""
+
+    __tablename__ = 'locations'
+
+    pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
+    city_name = db.Column(db.String)
+    longitude = db.Column(db.Float, nullable=False)
+    latitude = db.Column(db.Float, nullable=False)
+    distance_in = db.Column(db.Integer)
+
+    def __repr__(self):
+        return f'<Location pin_id={self.pin_id} city_name={self.city_name} distance_in={self.distance_in}>'
+
+#location_id, distance from the start, lon, lat, city name
+# list
+#query list of locations passed
 
 
 
