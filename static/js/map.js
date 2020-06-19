@@ -24,13 +24,14 @@ var geojson = {
   }]
 };
 
+console.log([window.currentLocation.longitude, window.currentLocation.latitude])
 var user_location = {
   type: 'FeatureCollection',
   features: [{
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [-1.23501836322248, 43.163664909079671]
+      coordinates: [window.currentLocation.latitude, window.currentLocation.longitude]
     },
     properties: {
       title: 'Mapbox',

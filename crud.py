@@ -61,10 +61,10 @@ def update_num_steps(steps, new_num):
     return steps
 
 
-def create_location(city_name, longitude, latitude, distance_in):
+def create_location(longitude, latitude, distance_in):
     """Create and return a new location."""
 
-    location = Location(city_name=city_name, longitude=longitude,
+    location = Location(longitude=longitude,
     latitude=latitude, distance_in=distance_in)
 
     db.session.add(location)

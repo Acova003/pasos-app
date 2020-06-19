@@ -52,10 +52,10 @@ def seed_locations():
 
     # to create locations
     for distance,location in location_data.items():
-        longitude = location['lon']
         latitude = location['lat']
+        longitude = location['lon']
 
-        crud.create_location(longitude, latitude, float(distance))
+        crud.create_location(latitude, longitude, float(distance))
 
 
 

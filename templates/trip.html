@@ -53,10 +53,17 @@
 
 <div id='map'></div>
 
+  <script>
+  window.currentLocation = {
+    "latitude": {{location.latitude}},
+    "longitude": {{location.longitude}},
+    "distance_in": {{location.distance_in}}
+  }
+  </script>
   <script src="/static/js/map.js"></script>
   <nav id="map-title" class="map-title">
     <label for="title">{{given_name}}'s Camino</label>
-    <label for="steps">You've walked {{step_count}} steps. {{distance_to_santiago}} km to Santiago. {{kms_traveled}} km traveled.</label>
+    <label for="steps">You've walked {{step_count}} steps. {{distance_to_santiago}} km to Santiago. {{location.distance_in}} km traveled.</label>
     <!-- <label for="today_steps">You've walked {{today_steps}} steps today</label>   -->
   </nav>
 

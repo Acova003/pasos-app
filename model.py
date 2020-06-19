@@ -39,13 +39,12 @@ class Location(db.Model):
     __tablename__ = 'locations'
 
     pin_id = db.Column(db.Integer, autoincrement=True, primary_key=True)
-    city_name = db.Column(db.String)
-    longitude = db.Column(db.Float, nullable=False)
     latitude = db.Column(db.Float, nullable=False)
-    distance_in = db.Column(db.Integer)
+    longitude = db.Column(db.Float, nullable=False)
+    distance_in = db.Column(db.Float)
 
     def __repr__(self):
-        return f'<Location pin_id={self.pin_id} city_name={self.city_name} distance_in={self.distance_in}>'
+        return f'<Location pin_id={self.pin_id} latitude={self.latitude} longitude={self.longitude} distance_in={self.distance_in}>'
 
 #location_id, distance from the start, lon, lat, city name
 # list

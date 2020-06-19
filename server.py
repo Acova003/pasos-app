@@ -10,6 +10,8 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.urllib3 import AuthorizedHttp
 from datetime import datetime
 from google_fit_steps import get_steps_from_api
+from helpers import get_location
+
 
 import os
 import crud
@@ -35,6 +37,17 @@ blueprint = make_google_blueprint(
     ],
 )
 app.register_blueprint(blueprint, url_prefix="/login")
+
+@app.route("/test")
+def test():
+    given_name = "Amee"
+    num_steps = 1300
+    new_steps = 250
+    kms = num_steps * 0.008
+    distance_to_santiago = int(780 - kms)
+    location = get_location(kms)
+
+    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago)
 
 @app.route("/")
 def index():
@@ -73,9 +86,17 @@ def index():
         steps = crud.update_num_steps(steps, new_steps)
 
     num_steps = crud.count_steps_for_user(user_matched)
-    kms_traveled = int(num_steps * 0.008)
-    distance_to_santiago = 780 - kms_traveled
-    return render_template("trip.html", given_name=given_name, step_count=num_steps, today_steps=new_steps, kms_traveled=kms_traveled, distance_to_santiago=distance_to_santiago)
+    kms = num_steps * 0.008
+    location = get_location(kms)
+    kms_traveled = location.distance_in
+    #display rounded during deployment
+    distance_to_santiago = int(780 - kms_traveled)
+
+    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago)
+
+def render_trip(name, num_steps, new_steps, location, distance_to_santiago):
+    return render_template("trip.html", given_name=name, step_count=num_steps,\
+        today_steps=new_steps, location=location, distance_to_santiago=distance_to_santiago)
 
 
 # profile page route

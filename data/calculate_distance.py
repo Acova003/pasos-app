@@ -1,11 +1,14 @@
 from math import sin, cos, sqrt, atan2, radians
+from pprint import pprint
+import json
 
+locations = {}
 with open('output.py') as f:
     for line in f:
         # lon = line[0]
         # lat = line[1]
         lon, lat = line.strip().split(", ")
-        print(lat, lon)
+        # print(lat, lon)
 # approximate radius of earth in km
         R = 6373.0
 
@@ -25,4 +28,7 @@ with open('output.py') as f:
 
         distance = R * c
 
-        print("Result:", distance)
+        # print("Result:", distance)
+        locations[distance] = {"lat": lat, "lon": lon}
+jsonify = json.dumps(locations)
+print(jsonify)

@@ -1,0 +1,47 @@
+{
+  "0": {
+    "city_name": "Saint Jean Pied de Port",
+    "lat": 43.163664909079671,
+    "lon": -1.23501836322248
+  },
+  "25": {
+    "city_name": "Roncesvalles",
+    "lat": 43.008530,
+    "lon": -1.319468
+  },
+  "47": {
+    "city_name": "Zubiri",
+    "lat": 42.991053,
+    "lon": -1.337952
+  },
+  "69": {
+    "city_name": "Pamplona",
+    "lat": 42.991053,
+    "lon": -1.337952
+  },
+  "93": {
+    "city_name": "Puenta La Reina",
+    "lat": 42.991053,
+    "lon": -1.337952
+  },
+  "114.5": {
+    "city_name": "Estella",
+    "lat": 43.008530,
+    "lon": -1.319468
+  },
+  "136.5": {
+    "city_name": "Los Arcos",
+    "lat": 42.991053,
+    "lon": -1.337952
+  },
+  "164.5": {
+    "city_name": "Logroño",
+    "lat": 42.991053,
+    "lon": -1.337952
+  },
+  "176.5": {
+    "city_name": "Navarrete",
+    "lat": 42.991053,
+    "lon": -1.337952
+  }
+}
