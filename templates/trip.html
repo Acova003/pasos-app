@@ -1,57 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8' />
-    <title></title>
-    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
+  <meta charset="utf-8">
+<title>Street View Side-By-Side</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  #pano, #map {
+    float: left;
+    height: 50%;
+    width: 50%;
+  }
+  .santiago {
+    background-image: url('static/img/cathedral.png');
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+    .currentLocation {
+      background-image: url('static/img/user_pin.png');
+      background-size: cover;
+      width: 30px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
       }
-
-      #map {
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 100%;
+    .map-title {
+      font: 40px/60px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+      font-weight: 600;
+      position: relative;
+      top: 100px;
+      left: 100px;
+      z-index: 1;
+      border-radius: 3px;
+      max-width: 40%;
+      color: #fff;
       }
-      .santiago {
-        background-image: url('static/img/cathedral.png');
-        background-size: cover;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        cursor: pointer;
-        }
-        .currentLocation {
-          background-image: url('static/img/user_pin.png');
-          background-size: cover;
-          width: 30px;
-          height: 50px;
-          border-radius: 50%;
-          cursor: pointer;
-          }
-        .map-title {
-          font: 40px/60px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-          font-weight: 600;
-          position: relative;
-          top: 100px;
-          left: 100px;
-          z-index: 1;
-          border-radius: 3px;
-          max-width: 40%;
-          color: #fff;
-          }
-
-    </style>
+</style>
+<meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.css' rel='stylesheet' />
 </head>
 <body>
-
-<div id='map'></div>
+<div id="map"></div>
+<div id="pano"></div>
 
   <script>
   window.currentLocation = {
@@ -64,8 +62,16 @@
   <nav id="map-title" class="map-title">
     <label for="title">{{given_name}}'s Camino</label>
     <label for="steps">You've walked {{step_count}} steps. {{distance_to_santiago}} km to Santiago. {{location.distance_in}} km traveled.</label>
-    <!-- <label for="today_steps">You've walked {{today_steps}} steps today</label>   -->
+    <label for="today_steps">You've walked {{today_steps}} steps today</label>
   </nav>
+  <div id="street-view"></div> -->
+
+
+  <script async defer
+         src={{GOOGLE_URL}}>
+    </script>
+
+  <script src="/static/js/google_street_view.js"></script>
 
 </body>
 </html>

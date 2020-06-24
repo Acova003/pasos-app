@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Pasos Home{% endblock %}
+{% block head %}
+<link rel="stylesheet" href="/static/css/styles.css">
+{% endblock %}
 
 {% block body %}
-  <h1>Buen Camino!</h1>
-
-  <h2>Navigation</h2>
-  <ul>
-    <li><a href="/login">Login</a></li>
-    <li><a href="/new_user">Create Account</a></li>
-  </ul>
-
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <div class="jumbotron">
+        <h1 class="display-4">Buen Camino!</h1>
+        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+        <hr class="my-4">
+        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+        <a class="btn btn-dark btn-lg" href="/trip" role="button">Enter the Camino</a>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

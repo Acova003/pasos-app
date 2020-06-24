@@ -3,6 +3,7 @@
 from flask import (Flask, request, flash, session, redirect, render_template, url_for)
 from model import db, connect_to_db
 from flask_dance.contrib.google import make_google_blueprint, google
+from flask_login import logout_user
 from oauthlib.oauth2.rfc6749.errors import TokenExpiredError
 from werkzeug.contrib.fixers import ProxyFix
 from jinja2 import StrictUndefined
@@ -29,6 +30,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 blueprint = make_google_blueprint(
     client_id=os.environ.get('CLIENT_ID'),
     client_secret=os.environ.get('CLIENT_SECRET'),
+    redirect_url="http://localhost:5002/trip",
     scope=[
         "openid",
         "https://www.googleapis.com/auth/userinfo.email",
@@ -41,19 +43,23 @@ app.register_blueprint(blueprint, url_prefix="/login")
 @app.route("/test")
 def test():
     given_name = "Amee"
-    num_steps = 1300
+    num_steps = 50000
     new_steps = 250
     kms = num_steps * 0.008
     distance_to_santiago = int(780 - kms)
     location = get_location(kms)
+    google_url = os.environ.get('GOOGLE_URL')
 
-    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago)
+    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago, google_url)
 
 @app.route("/")
 def index():
+    return render_template("index.html")
+
+@app.route("/trip")
+def trip():
     if not google.authorized:
         return redirect(url_for("google.login"))
-
     creds = Credentials(google.token['access_token'])
     print(google.token)
     http = AuthorizedHttp(creds)
@@ -91,12 +97,26 @@ def index():
     kms_traveled = location.distance_in
     #display rounded during deployment
     distance_to_santiago = int(780 - kms_traveled)
+    google_url = os.environ.get('GOOGLE_URL')
 
-    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago)
+    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago, google_url)
 
-def render_trip(name, num_steps, new_steps, location, distance_to_santiago):
+@app.route("/logout")
+def logout():
+    token = blueprint.token["access_token"]
+    resp = google.post(
+        "https://accounts.google.com/o/oauth2/revoke",
+        params={"token": token},
+        headers={"Content-Type": "application/x-www-form-urlencoded"}
+    )
+    assert resp.ok, resp.text
+    del blueprint.token  # Delete OAuth token from storage
+    return redirect("/")
+
+def render_trip(name, num_steps, new_steps, location, distance_to_santiago, google_url):
     return render_template("trip.html", given_name=name, step_count=num_steps,\
-        today_steps=new_steps, location=location, distance_to_santiago=distance_to_santiago)
+        today_steps=new_steps, location=location, distance_to_santiago=distance_to_santiago,\
+        GOOGLE_URL=google_url)
 
 
 # profile page route
