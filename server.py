@@ -11,7 +11,8 @@ from google.oauth2.credentials import Credentials
 from google.auth.transport.urllib3 import AuthorizedHttp
 from datetime import datetime
 from google_fit_steps import get_steps_from_api
-from helpers import get_location
+import helpers
+import traceback
 
 
 import os
@@ -43,7 +44,7 @@ app.register_blueprint(blueprint, url_prefix="/login")
 @app.route("/test")
 def test():
     given_name = "Amee"
-    num_steps = 50000
+    num_steps = 15000
     new_steps = 250
     kms = num_steps * 0.008
     distance_to_santiago = int(780 - kms)
@@ -58,6 +59,9 @@ def index():
 
 @app.route("/trip")
 def trip():
+    # helpers.handling_authorization()
+    print("Oooooooooooooooooooooooooooooooooooooo")
+
     if not google.authorized:
         return redirect(url_for("google.login"))
     creds = Credentials(google.token['access_token'])
@@ -65,41 +69,19 @@ def trip():
     http = AuthorizedHttp(creds)
 
     try:
+        print("+++++++++++++++++++++++")
         response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses')
+        print("----------------------------------")
+        auth = helpers.handling_authorization(creds, response)
 
-    except:
+        print("!!!!!")
+        return render_trip(auth)
+
+    except Exception as e:
+        print(traceback.format_exc())
+        print(e)
+        print('~~~~~~~~~~~~~~~~~~')
         return redirect(url_for('google.login'))
-
-    print(response.data)
-    response_json = json.loads(response.data)
-    email_address = response_json["emailAddresses"][0]['value']
-    given_name = response_json["names"][0]['givenName']
-    user_matched = crud.get_user_by_email(email_address)
-    # step_count = user_matched.step_count
-    # if user_matched isn't in db, call people api, get given name. Use given_name, email_address and step count
-    # to initialize new user at 0 steps
-    if user_matched is None:
-        user_matched = crud.create_user(given_name, email_address)
-        # value = "Buen Camino, peregrino! Welcome to Pasos"
-
-    new_steps = get_steps_from_api(creds)
-
-    date = datetime.today().date()
-    steps = crud.find_steps_for_user(user_matched, date)
-    if steps is None:
-        steps = crud.create_steps_for_user(user_matched, date, new_steps)
-    else:
-        steps = crud.update_num_steps(steps, new_steps)
-
-    num_steps = crud.count_steps_for_user(user_matched)
-    kms = num_steps * 0.008
-    location = get_location(kms)
-    kms_traveled = location.distance_in
-    #display rounded during deployment
-    distance_to_santiago = int(780 - kms_traveled)
-    google_url = os.environ.get('GOOGLE_URL')
-
-    return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago, google_url)
 
 @app.route("/logout")
 def logout():
@@ -113,10 +95,10 @@ def logout():
     del blueprint.token  # Delete OAuth token from storage
     return redirect("/")
 
-def render_trip(name, num_steps, new_steps, location, distance_to_santiago, google_url):
-    return render_template("trip.html", given_name=name, step_count=num_steps,\
-        today_steps=new_steps, location=location, distance_to_santiago=distance_to_santiago,\
-        GOOGLE_URL=google_url)
+def render_trip(info_dict):
+    return render_template("trip.html", given_name=info_dict["given_name"], step_count=info_dict["num_steps"],\
+        today_steps=info_dict["new_steps"], location=info_dict["location"], distance_to_santiago=info_dict["distance_to_santiago"],\
+        GOOGLE_URL=info_dict["google_url"])
 
 
 # profile page route

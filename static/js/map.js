@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/acova003/ckbfuohe64i6o1in70tmp7rdt',
   // center will be the user location
-  center: [-1.23501836322248, 43.163664909079671],
+  center: [window.currentLocation.latitude, window.currentLocation.longitude],
   zoom: 6
 });
 
