@@ -60,7 +60,6 @@ def index():
 @app.route("/trip")
 def trip():
     # helpers.handling_authorization()
-    print("Oooooooooooooooooooooooooooooooooooooo")
 
     if not google.authorized:
         return redirect(url_for("google.login"))
@@ -69,18 +68,11 @@ def trip():
     http = AuthorizedHttp(creds)
 
     try:
-        print("+++++++++++++++++++++++")
         response = http.request('GET', 'https://people.googleapis.com/v1/people/me?personFields=names,emailAddresses')
-        print("----------------------------------")
         auth = helpers.handling_authorization(creds, response)
-
-        print("!!!!!")
         return render_trip(auth)
 
-    except Exception as e:
-        print(traceback.format_exc())
-        print(e)
-        print('~~~~~~~~~~~~~~~~~~')
+    except:
         return redirect(url_for('google.login'))
 
 @app.route("/logout")

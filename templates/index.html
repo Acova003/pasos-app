@@ -1,21 +1,86 @@
-{% extends 'base.html' %}
-{% block title %}Pasos Home{% endblock %}
-{% block head %}
-<link rel="stylesheet" href="/static/css/styles.css">
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="style.css" rel="stylesheet" />
+  </head>
+  <body>
+  <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#navbar-collapse-main">
+            <span class="sr-only">Menu</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"><img src="/static/img/logo.png"></a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbar-collapse-main">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Enter the Camino</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Specifications</a></li>
 
-{% block body %}
-<div class="container">
-  <div class="row">
-    <div class="col-sm">
-      <div class="jumbotron">
-        <h1 class="display-4">Buen Camino!</h1>
-        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-        <hr class="my-4">
-        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-        <a class="btn btn-dark btn-lg" href="/trip" role="button">Enter the Camino</a>
+
+          </ul>
+
+        </div>
+    </div>
+
+  </nav>
+  <div id="home">
+    <div class="landing-text">
+      <h1>Pasos</h1>
+      <h3>A virtual pilgrimmage on the Camino de Santiago</h3>
+      <a href="#" class="btn btn-default btn-lg">Enter</a>
+    </div>
+  </div>
+  <div class="padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        <img id = "feature_img" src="/static/img/fitness_tracker.jpeg" alt="Fitness tracker image">
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2>Google Fitness enabled tracking system</h2>
+        <p>Tracks your everyday steps with any Google Fitness compatible device
+        and progresses you along the Camino de Santiago Frances</p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <img id = "feature_img" src="/static/img/trail_view.jpeg" alt="Fitness tracker image">
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2>Experience the Camino through the lense of a pilgrim</h2>
+        <p>Displays a Google Street View of your exact location along your pilgrimmage</p>
+
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <img id = "feature_img" src="/static/img/map_image.jpeg" alt="Fitness tracker image">
+      </div>
+      <div class="col-sm-6 text-center">
+        <h2>Follow your journey to Santiago</h2>
+        <p>Watch your progression to Santiago in real-time on your virtual pilgrim's map</p>
+
       </div>
     </div>
   </div>
-</div>
-{% endblock %}
+  </div>
+  <div class="quote">
+    <h3>One thousand years of tradition meets new age technology</h3>
+  </div>
+
+  </body>
+</html>
