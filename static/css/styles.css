@@ -1,3 +1,13 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+.navbar {
+  background-color: #6F6E6E;
+}
+.navbar-logo{
+  padding: 0 10px 0;
+}
 .home-wrap {
  	clip: rect(0, auto, auto, 0);
  	position: absolute;
@@ -6,20 +16,23 @@
  	width: 100%;
  	height: 100%;
 }
+.navbar-default .navbar-nav li a{
+  color: #FFFFFF;
+}
 #home {
-	background-image: url('img/mountains.jpeg');
- 	position: fixed;
+	background-image: url('/static/img/home.png');
+ 	position: relative;
  	display: table;
  	top: 0;
  	left: 0;
  	width: 100%;
 	height: 100%;
 	background-size: cover;
-	background-position: center center;
+	/* background-position: center center;
 	-webkit-transform: translateZ(0);
           transform: translateZ(0);
 	will-change: transform;
-	z-index: -1;
+	z-index: -1; */
 }
 .landing-text {
 	z-index: 100;
@@ -58,9 +71,4 @@ figure {
 
 #feature_img {
   padding: 10px;
-}
-
-.navbar {
-  background-color: #304BC8;
-  padding: 1% 0;
 }
