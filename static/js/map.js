@@ -6,7 +6,7 @@ var map = new mapboxgl.Map({
   style: 'mapbox://styles/acova003/ckbfuohe64i6o1in70tmp7rdt',
   // center will be the user location
   center: [window.currentLocation.latitude, window.currentLocation.longitude],
-  zoom: 6
+  zoom: 4.5
 });
 
 var geojson = {
