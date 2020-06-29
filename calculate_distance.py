@@ -40,6 +40,8 @@ last_lat = radians(43.16366490907967)
 last_lon = radians(-1.23501836322248)
 distance = 0
 
+create_location(-1.23501836322248, 43.16366490907967, 0) # start of camino
+
 for row in data:
     # lon = line[0]
     # lat = line[1]
