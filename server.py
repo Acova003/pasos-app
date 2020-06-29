@@ -76,10 +76,9 @@ def trip():
         auth = helpers.handling_authorization(creds, response)
         return render_trip(auth)
 
-    except:
-        e = sys.exc_info()[0]
+    except Exception as e:
         print("Exception in auth:")
-        print(e)
+        print(repr(e))
         return redirect(url_for('google.login'))
 
 @app.route("/logout")
