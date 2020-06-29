@@ -24,6 +24,8 @@ import json
 from dotenv import load_dotenv
 load_dotenv()
 
+redirect_url = os.environ.get("REDIRECT_URL", "http://localhost:5002/trip")
+
 app = Flask(__name__)
 app.jinja_env.undefined = StrictUndefined
 app.wsgi_app = ProxyFix(app.wsgi_app)
@@ -31,7 +33,7 @@ app.secret_key = os.environ.get('SECRET_KEY')
 blueprint = make_google_blueprint(
     client_id=os.environ.get('CLIENT_ID'),
     client_secret=os.environ.get('CLIENT_SECRET'),
-    redirect_url="http://localhost:5002/trip",
+    redirect_url=redirect_url,
     scope=[
         "openid",
         "https://www.googleapis.com/auth/userinfo.email",
