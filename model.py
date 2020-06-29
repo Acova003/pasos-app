@@ -1,6 +1,7 @@
 """Models for Pasos app."""
 
 from flask_sqlalchemy import SQLAlchemy
+import os
 
 db = SQLAlchemy()
 
