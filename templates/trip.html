@@ -72,6 +72,14 @@
         </div>
     </div>
   </nav>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Buen Camino, {{given_name}}!</h1>
+      <p class="lead"><strong>Distance to Santiago: </strong>{{distance_to_santiago}} km</p>
+      <p class="lead"><strong> Distance traveled: </strong>{{location.distance_in}} km</p>
+      <p class="lead"><strong>Today's step count: </strong>{{today_steps}}</p>
+    </div>
+  </div>
 
 
 <div id="map"></div>
@@ -85,12 +93,7 @@
   }
   </script>
   <script src="/static/js/map.js"></script>
-  <nav id="map-title" class="map-title">
-    <label for="title">{{given_name}}'s Camino</label>
-    <label for="steps">You've walked {{step_count}} steps. {{distance_to_santiago}} km to Santiago. {{location.distance_in}} km traveled.</label>
-    <label for="today_steps">You've walked {{today_steps}} steps today</label>
-  </nav>
-  <div id="street-view"></div> -->
+  <div id="street-view"></div>
 
 
   <script async defer
@@ -98,7 +101,7 @@
     </script>
 
   <script src="/static/js/google_street_view.js"></script>
-  
+
 
 </body>
 </html>
