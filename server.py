@@ -5,7 +5,7 @@ from model import db, connect_to_db
 from flask_dance.contrib.google import make_google_blueprint, google
 from flask_login import logout_user
 from oauthlib.oauth2.rfc6749.errors import TokenExpiredError
-from werkzeug.contrib.fixers import ProxyFix
+from werkzeug.middleware.proxy_fix import ProxyFix
 from jinja2 import StrictUndefined
 from google.oauth2.credentials import Credentials
 from google.auth.transport.urllib3 import AuthorizedHttp
