@@ -16,6 +16,7 @@ import traceback
 
 
 import os
+import sys
 import crud
 import google_auth_httplib2
 import httplib2
@@ -76,6 +77,9 @@ def trip():
         return render_trip(auth)
 
     except:
+        e = sys.exc_info()[0]
+        print("Exception in auth:")
+        print(e)
         return redirect(url_for('google.login'))
 
 @app.route("/logout")
