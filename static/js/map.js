@@ -5,7 +5,7 @@ var map = new mapboxgl.Map({
   container: 'map',
   style: 'mapbox://styles/acova003/ckbfuohe64i6o1in70tmp7rdt',
   // center will be the user location
-  center: [window.currentLocation.latitude, window.currentLocation.longitude],
+  center: [window.currentLocation.longitude, window.currentLocation.latitude],
   zoom: 4.5
 });
 
@@ -31,7 +31,7 @@ var user_location = {
     type: 'Feature',
     geometry: {
       type: 'Point',
-      coordinates: [window.currentLocation.latitude, window.currentLocation.longitude]
+      coordinates: [window.currentLocation.longitude, window.currentLocation.latitude]
     },
     properties: {
       title: 'Mapbox',

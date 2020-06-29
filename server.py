@@ -46,9 +46,10 @@ def test():
     given_name = "Amee"
     num_steps = 15000
     new_steps = 250
-    kms = num_steps * 0.008
-    distance_to_santiago = int(780 - kms)
-    location = get_location(kms)
+    kms = num_steps * 0.00076
+    distance_to_santiago = int(807 - kms)
+    location = get_location(800)
+    # location = get_location(kms)
     google_url = os.environ.get('GOOGLE_URL')
 
     return render_trip(given_name, num_steps, new_steps, location, distance_to_santiago, google_url)
@@ -86,6 +87,10 @@ def logout():
     assert resp.ok, resp.text
     del blueprint.token  # Delete OAuth token from storage
     return redirect("/")
+
+@app.route("/draft")
+def draft():
+    return render_template("draft.html")
 
 def render_trip(info_dict):
     return render_template("trip.html", given_name=info_dict["given_name"], step_count=info_dict["num_steps"],\

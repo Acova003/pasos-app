@@ -1,5 +1,5 @@
 function initialize() {
-        var fenway = {lat: window.currentLocation.longitude, lng: window.currentLocation.latitude};
+        var fenway = {lat: window.currentLocation.latitude, lng: window.currentLocation.longitude};
         console.log('fenway', fenway)
 
         var sVS = new google.maps.StreetViewService();

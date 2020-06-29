@@ -28,7 +28,6 @@ def get_location(distance_in):
 def handling_authorization(creds, response):
     print(response.data)
     response_json = json.loads(response.data)
-    print('{{{{{{{{{{{{{{{{{{{{}}}}}}}}}}}}}}}}}}}}')
     email_address = response_json["emailAddresses"][0]['value']
     print(response_json)
 
@@ -51,7 +50,7 @@ def handling_authorization(creds, response):
         steps = crud.update_num_steps(steps, new_steps)
 
     num_steps = crud.count_steps_for_user(user_matched)
-    kms = num_steps * 0.008
+    kms = num_steps * 0.00076
     location = get_location(kms)
     kms_traveled = location.distance_in
     #display rounded during deployment
@@ -59,7 +58,6 @@ def handling_authorization(creds, response):
     google_url = os.environ.get('GOOGLE_URL')
     print({given_name: given_name, num_steps: num_steps, new_steps: new_steps, location: location,
      distance_to_santiago: distance_to_santiago, google_url: google_url})
-    print("************")
 
     return {"given_name": given_name, "num_steps": num_steps, "new_steps": new_steps, "location": location,
      "distance_to_santiago": distance_to_santiago, "google_url": google_url}

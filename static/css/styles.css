@@ -79,3 +79,35 @@ figure {
 #feature_img {
   padding: 10px;
 }
+#pano, #map {
+  float: left;
+  height: 50%;
+  width: 50%;
+}
+.santiago {
+  background-image: url('img/cathedral.png');
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+  }
+  .currentLocation {
+    background-image: url('static/img/user_pin.png');
+    background-size: cover;
+    width: 30px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    }
+  .map-title {
+    font: 40px/60px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    position: relative;
+    top: 100px;
+    left: 100px;
+    z-index: 1;
+    border-radius: 3px;
+    max-width: 40%;
+    color: #fff;
+    }
