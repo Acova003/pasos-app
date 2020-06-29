@@ -103,4 +103,5 @@ def render_trip(info_dict):
 #1,550 steps per km
 if __name__ == '__main__':
     connect_to_db(app)
-    app.run(host='0.0.0.0', debug=True)
+    port = os.getenv('PORT', '5000')
+    app.run(host='0.0.0.0', port=port, debug=True)
