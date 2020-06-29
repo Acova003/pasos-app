@@ -55,7 +55,7 @@ class Location(db.Model):
 
 def connect_to_db(flask_app):
     flask_app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL', 'postgresql:///pasos')
-    flask_app.config['SQLALCHEMY_ECHO'] = os.getenv('SQLALCHEMY_ECHO', false)
+    flask_app.config['SQLALCHEMY_ECHO'] = os.getenv('SQLALCHEMY_ECHO', False)
     flask_app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
     db.app = flask_app
