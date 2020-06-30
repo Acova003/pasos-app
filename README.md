@@ -17,5 +17,8 @@ Deployed on Heroku: [Pasos](https://pasos-app.herokuapp.com/)
 ### Requirements
 ------------
 * Gmail account 
-* Google Fit account 
 * Google Fit compatible fitness tracker 
+* Google Fit app: 
+![GitHub Logo](/static/img/google_play_logo.png)
+Format: ![Alt Text](url)
+
