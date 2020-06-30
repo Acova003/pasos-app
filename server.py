@@ -66,7 +66,7 @@ def trip():
     # helpers.handling_authorization()
 
     if not google.authorized:
-        return redirect(url_for("google.login"))
+        return redirect(url_for('google.login'))
     creds = Credentials(google.token['access_token'])
     print(google.token)
     http = AuthorizedHttp(creds)
