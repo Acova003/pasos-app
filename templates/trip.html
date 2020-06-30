@@ -11,9 +11,10 @@
   }
   #pano, #map {
     float: left;
-    height: 50%;
-    width: 50%;
+    height: 100%;
+    width: 100%;
     padding-top: 70px;
+    min-height: 500px;
   }
   .santiago {
     background-image: url('static/img/cathedral.png');
@@ -72,7 +73,7 @@
         </div>
     </div>
   </nav>
-  <div class="jumbotron jumbotron-fluid">
+  <div class="jumbotron">
     <div class="container">
       <h1 class="display-4">Buen Camino, {{given_name}}!</h1>
       <h6 class="lead"><strong>Distance to Santiago: </strong>{{distance_to_santiago}} km</h6>
@@ -80,10 +81,16 @@
       <h6 class="lead"><strong>Today's step count: </strong>{{today_steps}}</h6>
     </div>
   </div>
+  <div class="jumbotron">
+    <div class="container" id="map"></div>
+  </div>
+  <div class="jumbotron">
+    <div class="container" id="pano"></div>
+  </div>
 
 
-<div id="map"></div>
-<div id="pano"></div>
+<!-- <div id="map"></div> -->
+<!-- <div id="pano"></div> -->
 
   <script>
   window.currentLocation = {
