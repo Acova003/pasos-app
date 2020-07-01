@@ -86,7 +86,7 @@ figure {
   width: 90%;
 }
 .santiago {
-  background-image: url('img/cathedral.png');
+  background-image: url('/static/img/cathedral.png');
   background-size: cover;
   width: 50px;
   height: 50px;
@@ -94,7 +94,7 @@ figure {
   cursor: pointer;
   }
   .currentLocation {
-    background-image: url('static/img/user_pin.png');
+    background-image: url('/static/img/user_pin.png');
     background-size: cover;
     width: 30px;
     height: 50px;

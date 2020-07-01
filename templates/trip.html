@@ -3,49 +3,6 @@
 <head>
   <meta charset="utf-8">
 <title>Street View Side-By-Side</title>
-<!-- <style>
-  html, body {
-    height: 100%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  #pano, #map {
-    margin: auto;
-    height: 90%;
-    width: 90%;
-    padding-top: 70px;
-    padding-bottom: 70px;
-    min-height: 500px;
-  }
-  .santiago {
-    background-image: url('static/img/cathedral.png');
-    background-size: cover;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    cursor: pointer;
-    }
-    .currentLocation {
-      background-image: url('static/img/user_pin.png');
-      background-size: cover;
-      width: 30px;
-      height: 50px;
-      border-radius: 50%;
-      cursor: pointer;
-      }
-    .map-title {
-      font: 40px/60px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-      font-weight: 600;
-      position: relative;
-      top: 100px;
-      left: 100px;
-      z-index: 1;
-      border-radius: 3px;
-      max-width: 40%;
-      color: #fff;
-      }
-</style> -->
 <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
 <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.11.0/mapbox-gl.js'></script>
@@ -54,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <link href="/static/css/styles.css" rel="stylesheet" />
 </head>
 <body>
@@ -70,7 +27,7 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-main">
           <ul class="nav navbar-nav navbar-right">
-            <a href="/logout" class="btn btn-outline-light btn-lg" role="button">Logout</a>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </div>
     </div>
