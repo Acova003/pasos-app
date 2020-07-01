@@ -24,7 +24,6 @@ var geojson = {
   }]
 };
 
-console.log([window.currentLocation.longitude, window.currentLocation.latitude])
 var user_location = {
   type: 'FeatureCollection',
   features: [{

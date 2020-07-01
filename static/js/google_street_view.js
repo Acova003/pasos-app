@@ -1,12 +1,10 @@
 function initialize() {
         var fenway = {lat: window.currentLocation.latitude, lng: window.currentLocation.longitude};
-        console.log('fenway', fenway)
-
         var sVS = new google.maps.StreetViewService();
         sVS.getPanoramaByLocation(fenway, 500,
           function (streetViewPanoramaData, status) {
             if (status === google.maps.StreetViewStatus.OK) {
-              console.log('Location exists', streetViewPanoramaData);
+              
               document.getElementById('googleSVLocation').innerHTML = streetViewPanoramaData.location.description;
               var panorama = new google.maps.StreetViewPanorama(
                   document.getElementById('pano'), {
@@ -16,7 +14,6 @@ function initialize() {
                       pitch: 10
                     }
                   });
-              console.log('panorama', panorama);
             } else {
               console.log('Location does not exist', streetViewPanoramaData);
             }
