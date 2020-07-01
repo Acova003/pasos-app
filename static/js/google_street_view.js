@@ -11,9 +11,10 @@ function initialize() {
                     position: streetViewPanoramaData.location.latLng,
                     pov: {
                       heading: 34,
-                      pitch: 10,
-                      motionTracking: true
-                    }
+                      pitch: 10
+                    },
+                    motionTracking: true,
+                    motionTrackingControl: true
                   });
             } else {
               console.log('Location does not exist', streetViewPanoramaData);
