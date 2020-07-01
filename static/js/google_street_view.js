@@ -16,15 +16,19 @@ function initialize() {
                     motionTracking: true,
                     motionTrackingControl: true
                   });
+                  var image = {
+                    url: '../static/img/trail_marker.png',
+                    scaledSize : new google.maps.Size(100, 100),
+                };
+                  var cafeMarker = new google.maps.Marker({
+                    position: { lat: window.currentLocation.latitude, lng: window.currentLocation.longitude },
+                    map: panorama,
+                    icon: image,
+                    title: "Cafe"
+                  });
             } else {
               console.log('Location does not exist', streetViewPanoramaData);
             }
           }
         )
-        // map.setStreetView(panorama);
       }
-      // window.currentLocation.latitude, window.currentLocation.longitude
-      // current 43.0250000674278, -1.32930119521916]
-      // santiago -8.545802067965269,"lat":42.88085061125457
-// 43.04032562300563", "lon": "-1.281128469854593
-      // [43.0250000674278, -1.32930119521916]
