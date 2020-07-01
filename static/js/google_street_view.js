@@ -20,11 +20,11 @@ function initialize() {
                     url: '../static/img/trail_marker.png',
                     scaledSize : new google.maps.Size(100, 100),
                 };
-                  var cafeMarker = new google.maps.Marker({
+                  var userMarker = new google.maps.Marker({
                     position: { lat: window.currentLocation.latitude, lng: window.currentLocation.longitude },
                     map: panorama,
                     icon: image,
-                    title: "Cafe"
+                    title: "The way to Santiago"
                   });
             } else {
               console.log('Location does not exist', streetViewPanoramaData);
