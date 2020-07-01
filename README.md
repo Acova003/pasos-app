@@ -4,6 +4,8 @@
 ### CONTENTS OF THIS FILE
 ---------------------
  * Introduction
+ * Built With
+ * Features
  * Requirements
  * Configuration
  * Demo
@@ -14,7 +16,31 @@ Pasos is a fitness web application that tracks daily steps taken and progresses 
 
 Deployed on Heroku: [Pasos](https://pasos-app.herokuapp.com/)
 
-### Requirements
+### BUILT WITH
+------------
+
+##### Languages:
+<ul>
+ <li>Python</li> <li>JavaScript</li> <li>CSS</li> <li>HTML</li>
+</ul>
+
+##### Framework/libraries:
+<ul>
+ <li>Flask</li> <li>Bootstrap</li> <li>JQuery</li>
+</ul>
+
+##### API's:
+<ul>
+<li>Google Fit</li> <li>Mapbox</li> <li>Google Street View</li>
+</ul>
+
+##### Authorization:
+<ul>
+<li>Google OAuth 2.0</li>
+</ul>
+
+
+### REQUIREMENTS
 ------------
 * Gmail account 
 * Google Fit compatible fitness tracker 
