@@ -39,7 +39,7 @@
     <div class="container">
       <h1 class="display-4">Buen Camino, {{given_name}}!</h1>
       <h6 class="lead"><strong>Distance to Santiago: </strong>{{distance_to_santiago}} km</h6>
-      <h6 class="lead"><strong> Distance traveled: </strong>{{location.distance_in}} km</h6>
+      <h6 class="lead"><strong> Distance traveled: </strong>{{'%0.2f'| format(location.distance_in|float)}} km</h6>
       <h6 class="lead"><strong>Today's step count: </strong>{{today_steps}}</h6>
       <ul id="pin_location">
         <li>
