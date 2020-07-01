@@ -70,7 +70,7 @@ In terminal, run "python3 server.py" from root directory
 ------------
 
 **Amee Covarrubias** - *Software developer currently seeking new opportunities*
-
+[LinkedIn](https://www.linkedin.com/in/ameecovarrubias/)
 
 
 
