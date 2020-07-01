@@ -123,3 +123,7 @@ figure {
     max-width: 40%;
     color: #fff;
     }
+
+    .feature_img {
+      margin: auto;
+    }
