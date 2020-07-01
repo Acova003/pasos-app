@@ -7,6 +7,7 @@ function initialize() {
           function (streetViewPanoramaData, status) {
             if (status === google.maps.StreetViewStatus.OK) {
               console.log('Location exists', streetViewPanoramaData);
+              document.getElementById('googleSVLocation').innerHTML = streetViewPanoramaData.location.description;
               var panorama = new google.maps.StreetViewPanorama(
                   document.getElementById('pano'), {
                     position: streetViewPanoramaData.location.latLng,

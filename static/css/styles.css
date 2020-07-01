@@ -77,8 +77,18 @@ figure {
 	will-change: transform;
 }
 
+#googleSVLocation {
+  font-size: 25px;
+  font-weight: 400;
+}
+
 #feature_img {
   padding: 10px;
+}
+
+#pin_location {
+  padding: 0px;
+  list-style: none;
 }
 #pano, #map {
   margin: auto;
