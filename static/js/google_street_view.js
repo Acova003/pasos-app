@@ -17,8 +17,8 @@ function initialize() {
                     motionTrackingControl: true
                   });
                   var image = {
-                    url: '../static/img/trail_marker.png',
-                    scaledSize : new google.maps.Size(100, 100),
+                    url: '../static/img/arrow.png',
+                    scaledSize : new google.maps.Size(150, 100),
                 };
                   var userMarker = new google.maps.Marker({
                     position: { lat: window.currentLocation.latitude, lng: window.currentLocation.longitude },
