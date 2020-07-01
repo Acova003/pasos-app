@@ -35,6 +35,10 @@ html, body {
 	background-size: cover;
 }
 
+#sticky-footer {
+  background-color: white;
+}
+
 .pasos-header {
   font-family: 'Bungee Shade', cursive;
   -webkit-text-stroke-color: #FFFFFF;
@@ -123,7 +127,17 @@ figure {
     max-width: 40%;
     color: #fff;
     }
+    .fa-github {
+      color: black;
+      width: 12px;
+      height: 12px;
+    }
 
     .feature_img {
+      margin: auto;
+    }
+
+    .quote {
+      font-family: 'Homemade Apple', cursive;
       margin: auto;
     }
