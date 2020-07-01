@@ -4,14 +4,15 @@ function initialize() {
         sVS.getPanoramaByLocation(fenway, 500,
           function (streetViewPanoramaData, status) {
             if (status === google.maps.StreetViewStatus.OK) {
-              
+
               document.getElementById('googleSVLocation').innerHTML = streetViewPanoramaData.location.description;
               var panorama = new google.maps.StreetViewPanorama(
                   document.getElementById('pano'), {
                     position: streetViewPanoramaData.location.latLng,
                     pov: {
                       heading: 34,
-                      pitch: 10
+                      pitch: 10,
+                      motionTracking: true
                     }
                   });
             } else {
