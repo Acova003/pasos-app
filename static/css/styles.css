@@ -132,6 +132,27 @@ figure {
       width: 12px;
       height: 12px;
     }
+    .about-header {
+      background-image: url('/static/img/passport.jpeg');
+      color: #FFFFFF;
+      -webkit-text-fill-color: white;
+      -webkit-text-stroke-width: 1px;
+      -webkit-text-stroke-color: grey;
+     	position: relative;
+     	display: table;
+     	top: 0;
+     	left: 0;
+     	width: 100%;
+    	height: 50%;
+    	background-size: cover;
+
+    }
+    .about-font {
+      font-family: 'Homemade Apple', cursive;
+      -webkit-text-stroke-color: #FFFFFF;
+      font-size: 500%;
+      color: #FFFFFF;
+    }
 
     .feature_img {
       margin: auto;
