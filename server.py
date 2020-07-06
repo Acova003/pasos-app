@@ -97,7 +97,7 @@ def user_3():
     info_dict = {"given_name": "Hannah",
     "num_steps": 104000,
     "new_steps": 250,
-    "location": helpers.get_location(808),
+    "location": helpers.get_location(807.5),
     "distance_to_santiago": 0,
     "google_url": os.environ.get('GOOGLE_URL')
     }
