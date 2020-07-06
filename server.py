@@ -44,7 +44,7 @@ blueprint = make_google_blueprint(
 )
 app.register_blueprint(blueprint, url_prefix="/login")
 
-@app.route("/test")
+@app.route("/juliana")
 def test():
     # given_name = "Amee"
     # num_steps = 15000
@@ -54,8 +54,48 @@ def test():
     # location = helpers.get_location(800)
     # # location = get_location(kms)
     # google_url = os.environ.get('GOOGLE_URL')
-    info_dict = {"given_name": "Amee",
-    "num_steps": 5000,
+    info_dict = {"given_name": "Juliana",
+    "num_steps": 50000,
+    "new_steps": 250,
+    "location": helpers.get_location(800),
+    "distance_to_santiago": int(807 - (5000 * 0.00076)),
+    "google_url": os.environ.get('GOOGLE_URL')
+    }
+
+    return render_trip(info_dict)
+
+@app.route("/francisco")
+def test():
+    # given_name = "Amee"
+    # num_steps = 15000
+    # new_steps = 250
+    # kms = num_steps * 0.00076
+    # distance_to_santiago = int(807 - kms)
+    # location = helpers.get_location(800)
+    # # location = get_location(kms)
+    # google_url = os.environ.get('GOOGLE_URL')
+    info_dict = {"given_name": "Francisco",
+    "num_steps": 20000,
+    "new_steps": 250,
+    "location": helpers.get_location(800),
+    "distance_to_santiago": int(807 - (5000 * 0.00076)),
+    "google_url": os.environ.get('GOOGLE_URL')
+    }
+
+    return render_trip(info_dict)
+
+@app.route("/hannah")
+def test():
+    # given_name = "Amee"
+    # num_steps = 15000
+    # new_steps = 250
+    # kms = num_steps * 0.00076
+    # distance_to_santiago = int(807 - kms)
+    # location = helpers.get_location(800)
+    # # location = get_location(kms)
+    # google_url = os.environ.get('GOOGLE_URL')
+    info_dict = {"given_name": "Hannah",
+    "num_steps": 1040000,
     "new_steps": 250,
     "location": helpers.get_location(800),
     "distance_to_santiago": int(807 - (5000 * 0.00076)),

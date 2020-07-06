@@ -147,12 +147,6 @@ figure {
     	background-size: cover;
 
     }
-    .about-font {
-      font-family: 'Homemade Apple', cursive;
-      -webkit-text-stroke-color: #FFFFFF;
-      font-size: 500%;
-      color: #FFFFFF;
-    }
 
     .feature_img {
       margin: auto;
