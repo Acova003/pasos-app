@@ -45,7 +45,7 @@ blueprint = make_google_blueprint(
 app.register_blueprint(blueprint, url_prefix="/login")
 
 @app.route("/juliana")
-def test():
+def user_1():
     # given_name = "Amee"
     # num_steps = 15000
     # new_steps = 250
@@ -65,7 +65,7 @@ def test():
     return render_trip(info_dict)
 
 @app.route("/francisco")
-def test():
+def user_2():
     # given_name = "Amee"
     # num_steps = 15000
     # new_steps = 250
@@ -85,7 +85,7 @@ def test():
     return render_trip(info_dict)
 
 @app.route("/hannah")
-def test():
+def user_3():
     # given_name = "Amee"
     # num_steps = 15000
     # new_steps = 250
