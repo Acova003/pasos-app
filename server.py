@@ -56,7 +56,7 @@ def user_1():
     # google_url = os.environ.get('GOOGLE_URL')
     info_dict = {"given_name": "Juliana",
     "num_steps": 0,
-    "new_steps": 250,
+    "new_steps": 0,
     "location": helpers.get_location(0),
     "distance_to_santiago": int(807 - (0 * 0.00076)),
     "google_url": os.environ.get('GOOGLE_URL')
@@ -76,7 +76,7 @@ def user_2():
     # google_url = os.environ.get('GOOGLE_URL')
     info_dict = {"given_name": "Francisco",
     "num_steps": 300000,
-    "new_steps": 250,
+    "new_steps": 1003,
     "location": helpers.get_location(579),
     "distance_to_santiago": int(807 - (300000 * 0.00076)),
     "google_url": os.environ.get('GOOGLE_URL')
@@ -96,7 +96,7 @@ def user_3():
     # google_url = os.environ.get('GOOGLE_URL')
     info_dict = {"given_name": "Hannah",
     "num_steps": 104000,
-    "new_steps": 250,
+    "new_steps": 4000,
     "location": helpers.get_location(807),
     "distance_to_santiago": 0,
     "google_url": os.environ.get('GOOGLE_URL')
