@@ -95,10 +95,10 @@ def user_3():
     # # location = get_location(kms)
     # google_url = os.environ.get('GOOGLE_URL')
     info_dict = {"given_name": "Hannah",
-    "num_steps": 1040000,
+    "num_steps": 104000,
     "new_steps": 250,
-    "location": helpers.get_location(807),
-    "distance_to_santiago": int(807 - (1040000 * 0.00076)),
+    "location": helpers.get_location(808),
+    "distance_to_santiago": 0,
     "google_url": os.environ.get('GOOGLE_URL')
     }
 
