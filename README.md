@@ -67,9 +67,6 @@ Video Demo:
 
 In terminal, run "python3 server.py" from root directory
 
-### DEMO
-------------
-
 ### AUTHOR 
 ------------
 
