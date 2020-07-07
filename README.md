@@ -17,6 +17,10 @@ Pasos is a fitness web application that tracks daily steps taken and progresses 
 
 Deployed on Heroku: [Pasos](https://pasos-app.herokuapp.com/)
 
+Video Demo: 
+
+[![Pasos Demo](http://img.youtube.com/vi/Wb8v0KpJ3ag/0.jpg)](https://www.youtube.com/watch?v=Wb8v0KpJ3ag "Pasos Demo")
+
 ### BUILT WITH
 ------------
 
