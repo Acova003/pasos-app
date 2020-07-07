@@ -49,7 +49,7 @@ Video Demo:
 * Fitness data statistics
 * Street view of user location calculated by distance traveled
 * Current city 
-* 50k geolocations 
+* Over 7k geolocations 
 * Visual representation of progression to Santiago de Compostela
 
 
