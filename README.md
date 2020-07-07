@@ -8,7 +8,6 @@
  * Features
  * Requirements
  * Running locally 
- * Demo
  * Author
  
 ### INTRODUCTION
